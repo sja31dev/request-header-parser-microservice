@@ -1,14 +1,24 @@
-
-
-/*var fs = require('fs');*/
 var express = require('express');
 var app = express();
+app.enable('trust proxy');
 
-app.get('/:string', function(req, res) {
-  
-  res.sendStatus(500);
+app.get('/whoami', function(req, res) {
+  try {
+    // Grab the client IP address. Needs the "app.enable('trust proxy');" above
+    var ip = req.ip; 
+    // Grab the first language, from the start of accept-language to the first comma
+    var lang = req.headers['accept-language'].match(/^(.*?)\,/)[1]; // .*? is a non-greedy match
+    // Grab the operating system into, Between the first set of brackets of user-agent
+    var sw = req.headers['user-agent'].match(/\((.*?)\)/)[1]; // .*? is a non-greedy match
+    res.json({
+      ipaddress: ip,
+      language: lang,
+      software: sw
+    });
+  } catch (e) {
+    res.sendStatus(500);
+  }
 });
-
   
 app.route('/')
     .get(function(req, res) {
