@@ -1,5 +1,5 @@
 {
-  "name": "timestamp-microservice",
+  "name": "request-header-parser-microservice",
   "dependencies": {
     "express": "^4.16.2"
   },
@@ -12,6 +12,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sja31dev/timestamp-microservice.git"
+    "url": "https://github.com/sja31dev/request-header-parser-microservice.git"
   }
 }
