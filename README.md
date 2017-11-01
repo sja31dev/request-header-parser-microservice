@@ -11,3 +11,4 @@
 ### Example response
       
 `{"ipaddress":"12.34.56.78","language":"en-US","software":"Windows NT 6.1; Win64; x64"}`
+
